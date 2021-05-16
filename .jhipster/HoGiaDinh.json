@@ -1,0 +1,63 @@
+{
+  "name": "HoGiaDinh",
+  "fields": [
+    {
+      "fieldName": "tenChuHo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maHo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soCanCuoc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loaiHo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soHoNgheo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sdt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "diaChi",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "taiKhoan",
+      "otherEntityRelationshipName": "hoGiaDinh",
+      "relationshipName": "taikhoan",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "hoaDon",
+      "otherEntityRelationshipName": "giadinh",
+      "relationshipName": "hoadongd",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "ho_gia_dinh",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210515172403"
+}

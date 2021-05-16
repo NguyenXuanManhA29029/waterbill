@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hoGiaDinh">
+      <h2 data-cy="hoGiaDinhDetailsHeading"><span>Ho Gia Dinh</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.id }}</span>
+        </dd>
+        <dt><span>Ten Chu Ho</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.tenChuHo }}</span>
+        </dd>
+        <dt><span>Ma Ho</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.maHo }}</span>
+        </dd>
+        <dt><span>So Can Cuoc</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.soCanCuoc }}</span>
+        </dd>
+        <dt><span>Loai Ho</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.loaiHo }}</span>
+        </dd>
+        <dt><span>So Ho Ngheo</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.soHoNgheo }}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.email }}</span>
+        </dd>
+        <dt><span>Sdt</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.sdt }}</span>
+        </dd>
+        <dt><span>Dia Chi</span></dt>
+        <dd>
+          <span>{{ hoGiaDinh.diaChi }}</span>
+        </dd>
+        <dt><span>Taikhoan</span></dt>
+        <dd>
+          <div *ngIf="hoGiaDinh.taikhoan">
+            <a [routerLink]="['/tai-khoan', hoGiaDinh.taikhoan?.id, 'view']">{{ hoGiaDinh.taikhoan?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ho-gia-dinh', hoGiaDinh.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

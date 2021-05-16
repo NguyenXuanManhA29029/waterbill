@@ -1,0 +1,24 @@
+{
+  "name": "BacTienHoThuong",
+  "fields": [
+    {
+      "fieldName": "tenBac",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "giaTriBac",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "bac_tien_ho_thuong",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210515172407"
+}

@@ -1,0 +1,85 @@
+{
+  "name": "HoaDon",
+  "fields": [
+    {
+      "fieldName": "tenChuHo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thangSuDung",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "chiSoMoi",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "chiSoCu",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "soNuoc",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "thanhTien",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "tienThue",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "tongTien",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ngayThanhToan",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "trangThaiThanhToan",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "thue",
+      "otherEntityRelationshipName": "hoaDon",
+      "relationshipName": "thue",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "bacTienHoNgheo",
+      "otherEntityRelationshipName": "hoaDon",
+      "relationshipName": "bacHoNgheo",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "bacTienHoThuong",
+      "otherEntityRelationshipName": "hoaDon",
+      "relationshipName": "bacHoThuong",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "hoGiaDinh",
+      "otherEntityRelationshipName": "hoadongd",
+      "relationshipName": "giadinh",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "hoa_don",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210515172408"
+}

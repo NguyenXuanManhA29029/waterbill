@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hoaDon">
+      <h2 data-cy="hoaDonDetailsHeading"><span>Hoa Don</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ hoaDon.id }}</span>
+        </dd>
+        <dt><span>Ten Chu Ho</span></dt>
+        <dd>
+          <span>{{ hoaDon.tenChuHo }}</span>
+        </dd>
+        <dt><span>Thang Su Dung</span></dt>
+        <dd>
+          <span>{{ hoaDon.thangSuDung }}</span>
+        </dd>
+        <dt><span>Chi So Moi</span></dt>
+        <dd>
+          <span>{{ hoaDon.chiSoMoi }}</span>
+        </dd>
+        <dt><span>Chi So Cu</span></dt>
+        <dd>
+          <span>{{ hoaDon.chiSoCu }}</span>
+        </dd>
+        <dt><span>So Nuoc</span></dt>
+        <dd>
+          <span>{{ hoaDon.soNuoc }}</span>
+        </dd>
+        <dt><span>Thanh Tien</span></dt>
+        <dd>
+          <span>{{ hoaDon.thanhTien }}</span>
+        </dd>
+        <dt><span>Tien Thue</span></dt>
+        <dd>
+          <span>{{ hoaDon.tienThue }}</span>
+        </dd>
+        <dt><span>Tong Tien</span></dt>
+        <dd>
+          <span>{{ hoaDon.tongTien }}</span>
+        </dd>
+        <dt><span>Ngay Thanh Toan</span></dt>
+        <dd>
+          <span>{{ hoaDon.ngayThanhToan | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Trang Thai Thanh Toan</span></dt>
+        <dd>
+          <span>{{ hoaDon.trangThaiThanhToan }}</span>
+        </dd>
+        <dt><span>Thue</span></dt>
+        <dd>
+          <div *ngIf="hoaDon.thue">
+            <a [routerLink]="['/thue', hoaDon.thue?.id, 'view']">{{ hoaDon.thue?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Bac Ho Ngheo</span></dt>
+        <dd>
+          <div *ngIf="hoaDon.bacHoNgheo">
+            <a [routerLink]="['/bac-tien-ho-ngheo', hoaDon.bacHoNgheo?.id, 'view']">{{ hoaDon.bacHoNgheo?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Bac Ho Thuong</span></dt>
+        <dd>
+          <div *ngIf="hoaDon.bacHoThuong">
+            <a [routerLink]="['/bac-tien-ho-thuong', hoaDon.bacHoThuong?.id, 'view']">{{ hoaDon.bacHoThuong?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Giadinh</span></dt>
+        <dd>
+          <div *ngIf="hoaDon.giadinh">
+            <a [routerLink]="['/ho-gia-dinh', hoaDon.giadinh?.id, 'view']">{{ hoaDon.giadinh?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hoa-don', hoaDon.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

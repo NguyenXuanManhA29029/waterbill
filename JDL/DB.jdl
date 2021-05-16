@@ -1,0 +1,57 @@
+
+entity HoGiaDinh {
+    tenChuHo String,
+    maHo String,
+    soCanCuoc String,
+    loaiHo String,
+    soHoNgheo String,
+    email String,
+    sdt String,
+    diaChi String,
+}
+
+entity TaiKhoan {
+    userName String,
+    passWord String,
+}
+
+
+entity Thue {
+	tenThue String,
+	giaTriThue Long,
+}
+
+entity BacTienHoNgheo {
+     tenBac String,
+     giaTriBac Long,
+}
+entity BacTienHoThuong {
+     tenBac String,
+     giaTriBac Long,
+}
+
+entity HoaDon {
+	tenChuHo String,
+	thangSuDung Long,
+	chiSoMoi Long,
+	chiSoCu Long,
+	soNuoc Long,
+	thanhTien Long,
+    tienThue Long,
+    tongTien Long,
+    ngayThanhToan Instant,
+	trangThaiThanhToan String
+}
+
+
+relationship OneToOne {
+	HoGiaDinh{taikhoan} to TaiKhoan{hoGiaDinh}
+}
+
+relationship OneToOne {
+	HoaDon{thue} to Thue,
+    HoaDon{bacHoNgheo} to BacTienHoNgheo,
+    HoaDon{bacHoThuong} to BacTienHoThuong,
+    HoaDon{giadinh} to HoGiaDinh{hoadongd}
+}
+

@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="TaiKhoanHeading">
+    <span>Tài khoản</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tai-khoan"
+        [routerLink]="['/tai-khoan/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Tai Khoan </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="taiKhoans?.length === 0">
+    <span>Không tồn tại tài khoản</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="taiKhoans && taiKhoans.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>User Name</span></th>
+          <th scope="col"><span>Pass Word</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let taiKhoan of taiKhoans; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tai-khoan', taiKhoan.id, 'view']">{{ taiKhoan.id }}</a>
+          </td>
+          <td>{{ taiKhoan.userName }}</td>
+          <td>{{ taiKhoan.passWord }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tai-khoan', taiKhoan.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tai-khoan', taiKhoan.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(taiKhoan)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity HoaDon.
+    -->
+    <changeSet id="20210515172408-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="thue_id"
+                                 baseTableName="hoa_don"
+                                 constraintName="fk_hoa_don__thue_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="thue"/>
+
+        <addForeignKeyConstraint baseColumnNames="bac_ho_ngheo_id"
+                                 baseTableName="hoa_don"
+                                 constraintName="fk_hoa_don__bac_ho_ngheo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bac_tien_ho_ngheo"/>
+
+        <addForeignKeyConstraint baseColumnNames="bac_ho_thuong_id"
+                                 baseTableName="hoa_don"
+                                 constraintName="fk_hoa_don__bac_ho_thuong_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bac_tien_ho_thuong"/>
+
+        <addForeignKeyConstraint baseColumnNames="giadinh_id"
+                                 baseTableName="hoa_don"
+                                 constraintName="fk_hoa_don__giadinh_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ho_gia_dinh"/>
+    </changeSet>
+</databaseChangeLog>

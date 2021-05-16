@@ -1,0 +1,32 @@
+{
+  "name": "TaiKhoan",
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passWord",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "hoGiaDinh",
+      "otherEntityRelationshipName": "taikhoan",
+      "relationshipName": "hoGiaDinh",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "tai_khoan",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210515172404"
+}

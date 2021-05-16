@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="HoGiaDinhHeading">
+    <span>Hộ gia đình</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ho-gia-dinh"
+        [routerLink]="['/ho-gia-dinh/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Ho Gia Dinh </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="hoGiaDinhs?.length === 0">
+    <span>Không tồn tại hộ gia đình</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="hoGiaDinhs && hoGiaDinhs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Ten Chu Ho</span></th>
+          <th scope="col"><span>Ma Ho</span></th>
+          <th scope="col"><span>So Can Cuoc</span></th>
+          <th scope="col"><span>Loai Ho</span></th>
+          <th scope="col"><span>So Ho Ngheo</span></th>
+          <th scope="col"><span>Email</span></th>
+          <th scope="col"><span>Sdt</span></th>
+          <th scope="col"><span>Dia Chi</span></th>
+          <th scope="col"><span>Taikhoan</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hoGiaDinh of hoGiaDinhs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/ho-gia-dinh', hoGiaDinh.id, 'view']">{{ hoGiaDinh.id }}</a>
+          </td>
+          <td>{{ hoGiaDinh.tenChuHo }}</td>
+          <td>{{ hoGiaDinh.maHo }}</td>
+          <td>{{ hoGiaDinh.soCanCuoc }}</td>
+          <td>{{ hoGiaDinh.loaiHo }}</td>
+          <td>{{ hoGiaDinh.soHoNgheo }}</td>
+          <td>{{ hoGiaDinh.email }}</td>
+          <td>{{ hoGiaDinh.sdt }}</td>
+          <td>{{ hoGiaDinh.diaChi }}</td>
+          <td>
+            <div *ngIf="hoGiaDinh.taikhoan">
+              <a [routerLink]="['/tai-khoan', hoGiaDinh.taikhoan?.id, 'view']">{{ hoGiaDinh.taikhoan?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/ho-gia-dinh', hoGiaDinh.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/ho-gia-dinh', hoGiaDinh.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(hoGiaDinh)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
